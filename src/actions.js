@@ -441,3 +441,17 @@ export const projectNameValidationClear = () => (dispatch) => {
     type: CLEAR(ACTION_TYPE.PROJECT_NAME_FIELDS_VALIDATION),
   });
 };
+
+const WORKFLOWS_FULL_PROJECTION = () => [
+  'name',
+  'group',
+];
+
+export function fetchWorkflows() {
+  const payload = formatQuery(
+    'workflow',
+    ['group: "socialProtection"'],
+    WORKFLOWS_FULL_PROJECTION(),
+  );
+  return graphql(payload, ACTION_TYPE.GET_WORKFLOWS);
+}

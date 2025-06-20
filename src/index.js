@@ -12,7 +12,6 @@ import BenefitPlansPage from './pages/BenefitPlansPage';
 import BenefitPlanPage from './pages/BenefitPlanPage';
 import ProjectPage from './pages/ProjectPage';
 import BenefitPlanSearcher from './components/BenefitPlanSearcher';
-import BenefitPlanSearcherForEntities from './components/BenefitPlanSearcherForEntities';
 import BenefitPlanTaskPreviewTable from './components/BenefitPlanTaskPreviewTable';
 import BenefitPlanPicker from './pickers/BenefitPlanPicker';
 import { BenefitPlansListTabLabel, BenefitPlansListTabPanel } from './components/BenefitPlansListTab';
@@ -20,7 +19,13 @@ import {
   BenefitPlanTaskItemFormatters,
   BenefitPlanTaskTableHeaders,
 } from './components/tasks/BenefitPlanTasks';
-import { fetchBenefitPlanSchemaFields } from './actions';
+import {
+  fetchBenefitPlanSchemaFields,
+  clearBenefitPlan,
+  deleteBenefitPlan,
+  fetchBenefitPlan,
+  fetchBenefitPlans,
+} from './actions';
 import BenefitPlanHistorySearcher from './components/BenefitPlanHistorySearcher';
 import {
   BenefitPlanProjectsTabLabel,
@@ -29,6 +34,8 @@ import {
 import { BenefitPlanChangelogTabLabel, BenefitPlanChangelogTabPanel } from './components/BenefitPlanChangelogTab';
 import { BenefitPlanTaskTabLabel, BenefitPlanTaskTabPanel } from './components/BenefitPlanTaskTab';
 import { BENEFIT_PLAN_LABEL, RIGHT_BENEFIT_PLAN_SEARCH } from './constants';
+import BenefitPlanFilter from './components/BenefitPlanFilter';
+import BenefitPlanSchemaModal from './dialogs/BenefitPlanSchemaModal';
 
 const ROUTE_BENEFIT_PLANS = 'benefitPlans';
 const ROUTE_BENEFIT_PLAN = 'benefitPlans/benefitPlan';
@@ -47,16 +54,15 @@ const DEFAULT_CONFIG = {
     },
   ],
   refs: [
-    { key: 'socialProtection.route.benefitPlan', ref: ROUTE_BENEFIT_PLAN },
-    { key: 'socialProtection.route.project', ref: ROUTE_PROJECT },
-    { key: 'socialProtection.BenefitPlanSearcher', ref: BenefitPlanSearcher },
-    { key: 'socialProtection.BenefitPlanSearcherForEntities', ref: BenefitPlanSearcherForEntities },
-    { key: 'socialProtection.BenefitPlanTaskPreviewTable', ref: BenefitPlanTaskPreviewTable },
-    { key: 'socialProtection.BenefitPlanPicker', ref: BenefitPlanPicker },
-    { key: 'socialProtection.BenefitPlansListTabLabel', ref: BenefitPlansListTabLabel },
-    { key: 'socialProtection.BenefitPlansListTabPanel', ref: BenefitPlansListTabPanel },
-    { key: 'socialProtection.fetchBenefitPlanSchemaFields', ref: fetchBenefitPlanSchemaFields },
-    { key: 'socialProtection.BenefitPlanHistorySearcher', ref: BenefitPlanHistorySearcher },
+    { key: 'benefitPlan.route.benefitPlan', ref: ROUTE_BENEFIT_PLAN },
+    { key: 'benefitPlan.route.project', ref: ROUTE_PROJECT },
+    { key: 'benefitPlan.BenefitPlanSearcher', ref: BenefitPlanSearcher },
+    { key: 'benefitPlan.BenefitPlanTaskPreviewTable', ref: BenefitPlanTaskPreviewTable },
+    { key: 'benefitPlan.BenefitPlanPicker', ref: BenefitPlanPicker },
+    { key: 'benefitPlan.BenefitPlansListTabLabel', ref: BenefitPlansListTabLabel },
+    { key: 'benefitPlan.BenefitPlansListTabPanel', ref: BenefitPlansListTabPanel },
+    { key: 'benefitPlan.fetchBenefitPlanSchemaFields', ref: fetchBenefitPlanSchemaFields },
+    { key: 'benefitPlan.BenefitPlanHistorySearcher', ref: BenefitPlanHistorySearcher },
   ],
   'benefitPlan.TabPanel.label': [
     BenefitPlanProjectsTabLabel,
@@ -69,7 +75,7 @@ const DEFAULT_CONFIG = {
     BenefitPlanTaskTabPanel,
   ],
   'tasksManagement.tasks': [{
-    text: <FormattedMessage module="socialProtection" id="benefitPlan.tasks.update.title" />,
+    text: <FormattedMessage module="benefitPlan" id="benefitPlan.tasks.update.title" />,
     tableHeaders: BenefitPlanTaskTableHeaders,
     itemFormatters: BenefitPlanTaskItemFormatters,
     taskSource: ['BenefitPlanService'],
@@ -87,4 +93,13 @@ const DEFAULT_CONFIG = {
   ],
 };
 
-export const SocialProtectionModule = (cfg) => ({ ...DEFAULT_CONFIG, ...cfg });
+export {
+  BenefitPlanFilter,
+  BenefitPlanSchemaModal,
+  clearBenefitPlan,
+  deleteBenefitPlan,
+  fetchBenefitPlans,
+  fetchBenefitPlan,
+};
+
+export const BenefitPlanModule = (cfg) => ({ ...DEFAULT_CONFIG, ...cfg });

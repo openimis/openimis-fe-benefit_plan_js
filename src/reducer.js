@@ -41,6 +41,7 @@ export const ACTION_TYPE = {
   UNDO_DELETE_PROJECT: 'BENEFIT_PLAN_UNDO_DELETE_PROJECT',
   PROJECT_NAME_FIELDS_VALIDATION: 'PROJECT_NAME_FIELDS_VALIDATION',
   PROJECT_NAME_SET_VALID: 'PROJECT_NAME_SET_VALID',
+  GET_WORKFLOWS: 'GET_WORKFLOWS',
 };
 
 function reducer(
@@ -73,6 +74,12 @@ function reducer(
     projects: [],
     projectsPageInfo: {},
     projectsTotalCount: 0,
+    fetchingWorkflows: true,
+    fetchedWorkflows: false,
+    workflows: [],
+    workflowsPageInfo: {},
+    workflowsGroupBeneficiaries: null,
+    errorWorkflows: null,
   },
   action,
 ) {
@@ -492,6 +499,30 @@ function reducer(
             validationError: null,
           },
         },
+      };
+    case REQUEST(ACTION_TYPE.GET_WORKFLOWS):
+      return {
+        ...state,
+        fetchingWorkflows: true,
+        fetchedWorkflows: false,
+        workflows: [],
+        workflowsPageInfo: {},
+        errorWorkflows: null,
+      };
+    case SUCCESS(ACTION_TYPE.GET_WORKFLOWS):
+      return {
+        ...state,
+        fetchingWorkflows: false,
+        fetchedWorkflows: true,
+        workflows: action.payload.data.workflow || [],
+        workflowsPageInfo: pageInfo(action.payload.data.benefitPlan),
+        errorWorkflows: formatGraphQLError(action.payload),
+      };
+    case ERROR(ACTION_TYPE.GET_WORKFLOWS):
+      return {
+        ...state,
+        fetchingWorkflows: false,
+        errorWorkflows: formatServerError(action.payload),
       };
     case REQUEST(ACTION_TYPE.MUTATION):
       return dispatchMutationReq(state, action);

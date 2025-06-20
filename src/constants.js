@@ -89,7 +89,45 @@ export const BENEFIT_PLAN_TASK_TAB_VALUE = 'BenefitPlanTaskTab';
 export const BENEFITS_CONTRIBUTION_KEY = 'payroll.benefitConsumptionPayrollSearcher';
 export const PYTHON_DEFAULT_IMPORT_WORKFLOW = 'Python Beneficiaries Upload';
 export const BENEFICIARIES_QUANTITY_LIMIT = 100;
+export const BENEFIT_PLAN_BENEFICIARIES_TAB_WRAPPER_VALUE = 'benefitPlanBeneficiariesTabWrapper';
 export const INDIVIDUAL_LABEL = 'Individual';
 export const INDIVIDUAL_MODULE_NAME = 'individual';
 export const BENEFIT_PLAN_PROJECTS_TAB_VALUE = 'BenefitPlanProjectsTab';
 export const PROJECT_STATUS_LIST = ['PREPARATION', 'IN_PROGRESS', 'COMPLETED'];
+
+export const BENEFICIARY_STATUS = {
+  POTENTIAL: 'POTENTIAL',
+  ACTIVE: 'ACTIVE',
+  GRADUATED: 'GRADUATED',
+  SUSPENDED: 'SUSPENDED',
+};
+
+export const DEFAULT_BENEFICIARY_STATUS = 'POTENTIAL';
+
+export const UPLOAD_STATUS = {
+  PENDING: 'PENDING',
+  TRIGGERED: 'TRIGGERED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SUCCESS: 'SUCCESS',
+  PARTIAL_SUCCESS: 'PARTIAL_SUCCESS',
+  WAITING_FOR_VERIFICATION: 'WAITING_FOR_VERIFICATION',
+  FAIL: 'FAIL',
+};
+
+export const BENEFIT_PLAN_BENEFICIARIES_LIST_TAB_VALUE = 'benefitPlanBeneficiariesListTab';
+export const BENEFIT_PLAN_BENEFICIARIES_ACTIVE_TAB_VALUE = 'benefitPlanBeneficiariesActiveTab';
+export const BENEFIT_PLAN_BENEFICIARIES_POTENTIAL_TAB_VALUE = 'benefitPlanBeneficiariesPotentialTab';
+export const BENEFIT_PLAN_BENEFICIARIES_GRADUATED_TAB_VALUE = 'benefitPlanBeneficiariesGraduatedTab';
+export const BENEFIT_PLAN_BENEFICIARIES_SUSPENDED_TAB_VALUE = 'benefitPlanBeneficiariesSuspendedTab';
+
+export const RIGHT_INDIVIDUAL_SEARCH = 159001;
+export const RIGHT_INDIVIDUAL_CREATE = 159002;
+export const RIGHT_INDIVIDUAL_UPDATE = 159003;
+export const RIGHT_INDIVIDUAL_DELETE = 159004;
+export const RIGHT_GROUP_SEARCH = 180001;
+export const RIGHT_GROUP_CREATE = 180002;
+export const RIGHT_GROUP_UPDATE = 180003;
+export const RIGHT_GROUP_DELETE = 180004;
+
+export const RIGHT_BENEFICIARY_SEARCH = 170001;
+export const RIGHT_BENEFICIARY_UPDATE = 170003;

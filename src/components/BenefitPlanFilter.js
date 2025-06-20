@@ -6,7 +6,6 @@ import { withTheme, withStyles } from '@material-ui/core/styles';
 import _debounce from 'lodash/debounce';
 import { CONTAINS_LOOKUP, DEFAULT_DEBOUNCE_TIME, EMPTY_STRING } from '../constants';
 import { defaultFilterStyles } from '../util/styles';
-import BeneficiaryStatusPicker from '../pickers/BeneficiaryStatusPicker';
 import BenefitPlanTypePicker from '../pickers/BenefitPlanTypePicker';
 
 function BenefitPlanFilter({
@@ -129,10 +128,11 @@ function BenefitPlanFilter({
       </Grid>
       {showStatuses && (
         <Grid item xs={2} className={classes.item}>
-          <BeneficiaryStatusPicker
-            label="beneficiary.beneficiaryStatusPicker"
+          <PublishedComponent
+            pubRef="beneficiary.beneficiaryStatusPicker"
+            module="beneficiary"
             withNull
-            nullLabel={formatMessage(intl, 'socialProtection', 'any')}
+            nullLabel={formatMessage(intl, 'beneficiary', 'any')}
             value={filterValue('beneficiaryStatus')}
             onChange={(value) => onChangeFilters([
               {
