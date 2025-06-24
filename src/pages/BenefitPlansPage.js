@@ -23,8 +23,6 @@ function BenefitPlansPage(props) {
     intl, classes, rights, modulesManager, history,
   } = props;
 
-  console.log('xxx');
-
   const onAdd = () => historyPush(
     modulesManager,
     history,
