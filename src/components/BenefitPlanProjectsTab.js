@@ -12,7 +12,7 @@ function BenefitPlanProjectsTabLabel({
       className={tabStyle(BENEFIT_PLAN_PROJECTS_TAB_VALUE)}
       selected={isSelected(BENEFIT_PLAN_PROJECTS_TAB_VALUE)}
       value={BENEFIT_PLAN_PROJECTS_TAB_VALUE}
-      label={formatMessage(intl, 'socialProtection', 'projects.label')}
+      label={formatMessage(intl, 'benefitPlan', 'projects.label')}
     />
   );
 }
@@ -23,12 +23,12 @@ function BenefitPlanProjectsTabPanel({
   return (
     <PublishedComponent
       pubRef="policyHolder.TabPanel"
-      module="socialProtection"
+      module="benefitPlan"
       index={BENEFIT_PLAN_PROJECTS_TAB_VALUE}
       value={value}
     >
       <PublishedComponent
-        pubRef="socialProtection.BenefitPlanProjectsSearcher"
+        pubRef="benefitPlan.BenefitPlanProjectsSearcher"
         benefitPlanId={benefitPlan?.id}
         benefitPlanName={benefitPlan?.name}
         rights={rights}

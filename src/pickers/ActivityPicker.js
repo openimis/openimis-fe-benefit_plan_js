@@ -23,7 +23,7 @@ function ActivityPicker({
   filterSelectedOptions,
 }) {
   const modulesManager = useModulesManager();
-  const { formatMessage } = useTranslations('socialProtection', modulesManager);
+  const { formatMessage } = useTranslations('benefitPlan', modulesManager);
 
   const [filters, setFilters] = useState({ isDeleted: false });
 

@@ -87,7 +87,7 @@ function BenefitPlanProjectsSearcher({
 
   const openProject = (project) => rights.includes(RIGHT_PROJECT_UPDATE)
     && history.push(`${benefitPlanId}/`
-    + `${modulesManager.getRef('socialProtection.route.project')}`
+    + `${modulesManager.getRef('benefitPlan.route.project')}`
     + `/${project?.id}`);
 
   const onDelete = (project) => setProjectToDelete(project);
@@ -240,7 +240,7 @@ function BenefitPlanProjectsSearcher({
   const onAdd = () => {
     history.push({
       pathname: `${benefitPlanId}/`
-        + `${modulesManager.getRef('socialProtection.route.project')}`,
+        + `${modulesManager.getRef('benefitPlan.route.project')}`,
       state: {
         benefitPlanId,
         benefitPlanName,
@@ -303,15 +303,15 @@ function BenefitPlanProjectsSearcher({
 }
 
 const mapStateToProps = (state) => ({
-  fetchingProjects: state.socialProtection.fetchingProjects,
-  fetchedProjects: state.socialProtection.fetchedProjects,
-  errorProjects: state.socialProtection.errorProjects,
-  projects: state.socialProtection.projects,
-  projectsPageInfo: state.socialProtection.projectsPageInfo,
-  projectsTotalCount: state.socialProtection.projectsTotalCount,
+  fetchingProjects: state.benefitPlan.fetchingProjects,
+  fetchedProjects: state.benefitPlan.fetchedProjects,
+  errorProjects: state.benefitPlan.errorProjects,
+  projects: state.benefitPlan.projects,
+  projectsPageInfo: state.benefitPlan.projectsPageInfo,
+  projectsTotalCount: state.benefitPlan.projectsTotalCount,
   confirmed: state.core.confirmed,
-  submittingMutation: state.socialProtection.submittingMutation,
-  mutation: state.socialProtection.mutation,
+  submittingMutation: state.benefitPlan.submittingMutation,
+  mutation: state.benefitPlan.mutation,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

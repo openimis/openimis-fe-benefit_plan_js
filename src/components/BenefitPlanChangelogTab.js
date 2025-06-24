@@ -12,7 +12,7 @@ function BenefitPlanChangelogTabLabel({
       className={tabStyle(BENEFIT_PLAN_CHANGELOG_TAB_VALUE)}
       selected={isSelected(BENEFIT_PLAN_CHANGELOG_TAB_VALUE)}
       value={BENEFIT_PLAN_CHANGELOG_TAB_VALUE}
-      label={formatMessage(intl, 'socialProtection', 'benefitPlanChangelog.label')}
+      label={formatMessage(intl, 'benefitPlan', 'benefitPlanChangelog.label')}
     />
   );
 }
@@ -23,12 +23,12 @@ function BenefitPlanChangelogTabPanel({
   return (
     <PublishedComponent
       pubRef="policyHolder.TabPanel"
-      module="socialProtection"
+      module="benefitPlan"
       index={BENEFIT_PLAN_CHANGELOG_TAB_VALUE}
       value={value}
     >
       <PublishedComponent
-        pubRef="socialProtection.BenefitPlanHistorySearcher"
+        pubRef="benefitPlan.BenefitPlanHistorySearcher"
         benefitPlanId={benefitPlan?.id}
       />
     </PublishedComponent>

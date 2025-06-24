@@ -47,7 +47,7 @@ class ProjectHeadPanel extends FormPanel {
       <Grid container className={classes.item}>
         <Grid item xs={4} className={classes.item}>
           <ValidatedTextInput
-            module="socialProtection"
+            module="benefitPlan"
             label="project.name"
             value={project?.name ?? ''}
             required
@@ -82,7 +82,7 @@ class ProjectHeadPanel extends FormPanel {
         <Grid item xs={4} className={classes.item}>
           <PublishedComponent
             pubRef="location.LocationCascader"
-            module="socialProtection"
+            module="benefitPlan"
             label="Location"
             required
             withNull={false}
@@ -94,7 +94,7 @@ class ProjectHeadPanel extends FormPanel {
 
         <Grid item xs={4} className={classes.item}>
           <NumberInput
-            module="socialProtection"
+            module="benefitPlan"
             label="project.targetBeneficiaries"
             required
             readOnly={readOnly}
@@ -106,7 +106,7 @@ class ProjectHeadPanel extends FormPanel {
 
         <Grid item xs={4} className={classes.item}>
           <NumberInput
-            module="socialProtection"
+            module="benefitPlan"
             label="project.workingDays"
             required
             readOnly={readOnly}
@@ -128,7 +128,7 @@ class ProjectHeadPanel extends FormPanel {
 
         <Grid item xs={4} className={classes.item}>
           <TextInput
-            module="socialProtection"
+            module="benefitPlan"
             label="project.benefitPlan"
             value={project?.benefitPlan?.name ?? ''}
             readOnly
@@ -140,10 +140,10 @@ class ProjectHeadPanel extends FormPanel {
 }
 
 const mapStateToProps = (state) => ({
-  isProjectNameValid: state.socialProtection.validationFields?.projectName?.isValid,
-  isProjectNameValidating: state.socialProtection.validationFields?.projectName?.isValidating,
-  projectNameValidationError: state.socialProtection.validationFields?.projectName?.validationError,
-  savedProjectName: state.socialProtection?.project?.name,
+  isProjectNameValid: state.benefitPlan.validationFields?.projectName?.isValid,
+  isProjectNameValidating: state.benefitPlan.validationFields?.projectName?.isValidating,
+  projectNameValidationError: state.benefitPlan.validationFields?.projectName?.validationError,
+  savedProjectName: state.benefitPlan?.project?.name,
 });
 
 export default withModulesManager(injectIntl(withTheme(withStyles(styles)(

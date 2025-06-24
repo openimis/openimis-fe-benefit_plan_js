@@ -15,7 +15,7 @@ function BenefitPlanTaskTabLabel({
       className={tabStyle(BENEFIT_PLAN_TASK_TAB_VALUE)}
       selected={isSelected(BENEFIT_PLAN_TASK_TAB_VALUE)}
       value={BENEFIT_PLAN_TASK_TAB_VALUE}
-      label={formatMessage(intl, 'socialProtection', 'benefitPlanTasks.label')}
+      label={formatMessage(intl, 'benefitPlan', 'benefitPlanTasks.label')}
     />
   );
 }

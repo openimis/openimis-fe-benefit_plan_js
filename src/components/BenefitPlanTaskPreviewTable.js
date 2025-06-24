@@ -49,7 +49,7 @@ const styles = (theme) => ({
 });
 
 function BenefitPlanTaskPreviewTable({ intl, classes, previewItem }) {
-  const { fetchingBenefitPlanTasks, errorBenefitPlanTasks } = useSelector((state) => state?.socialProtection);
+  const { fetchingBenefitPlanTasks, errorBenefitPlanTasks } = useSelector((state) => state?.benefitPlan);
   const headers = () => [
     'benefitPlan.code',
     'benefitPlan.name',
@@ -76,7 +76,7 @@ function BenefitPlanTaskPreviewTable({ intl, classes, previewItem }) {
         <TableHead>
           <TableRow>
             {headers().map((column) => (
-              <TableCell>{formatMessage(intl, 'socialProtection', column)}</TableCell>
+              <TableCell>{formatMessage(intl, 'benefitPlan', column)}</TableCell>
             ))}
           </TableRow>
         </TableHead>

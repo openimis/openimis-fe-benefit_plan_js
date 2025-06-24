@@ -9,7 +9,7 @@ function ProjectStatusPicker(props) {
 
   return (
     <ConstantBasedPicker
-      module="socialProtection"
+      module="benefitPlan"
       label="project.statusPicker"
       constants={PROJECT_STATUS_LIST}
       required={required}

@@ -25,6 +25,7 @@ import {
   deleteBenefitPlan,
   fetchBenefitPlan,
   fetchBenefitPlans,
+  fetchWorkflows,
 } from './actions';
 import BenefitPlanHistorySearcher from './components/BenefitPlanHistorySearcher';
 import {
@@ -43,7 +44,7 @@ const ROUTE_PROJECT = 'project';
 
 const DEFAULT_CONFIG = {
   translations: [{ key: 'en', messages: flatten(messages_en) }],
-  reducers: [{ key: 'socialProtection', reducer }],
+  reducers: [{ key: 'benefitPlan', reducer }],
   'core.MainMenu': [{ name: 'BenefitPlanMainMenu', component: BenefitPlanMainMenu }],
   'core.Router': [
     { path: ROUTE_BENEFIT_PLANS, component: BenefitPlansPage },
@@ -82,13 +83,13 @@ const DEFAULT_CONFIG = {
     taskCode: BENEFIT_PLAN_LABEL,
   },
   ],
-  'socialProtection.MainMenu': [
+  'benefitPlan.MainMenu': [
     {
-      text: <FormattedMessage module="socialProtection" id="menu.socialProtection.benefitPlans" />,
+      text: <FormattedMessage module="benefitPlan" id="menu.benefitPlan.benefitPlans" />,
       icon: <Tune />,
       route: '/benefitPlans',
       filter: (rights) => rights.includes(RIGHT_BENEFIT_PLAN_SEARCH),
-      id: 'socialProtection.benefitPlans',
+      id: 'benefitPlan.benefitPlans',
     },
   ],
 };
@@ -100,6 +101,7 @@ export {
   deleteBenefitPlan,
   fetchBenefitPlans,
   fetchBenefitPlan,
+  fetchWorkflows,
 };
 
 export const BenefitPlanModule = (cfg) => ({ ...DEFAULT_CONFIG, ...cfg });

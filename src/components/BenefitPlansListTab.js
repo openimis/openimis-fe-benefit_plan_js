@@ -12,7 +12,7 @@ function BenefitPlansListTabLabel({
       className={tabStyle(BENEFIT_PLANS_LIST_TAB_VALUE)}
       selected={isSelected(BENEFIT_PLANS_LIST_TAB_VALUE)}
       value={BENEFIT_PLANS_LIST_TAB_VALUE}
-      label={formatMessage(intl, 'socialProtection', 'benefitPlansList.label')}
+      label={formatMessage(intl, 'benefitPlan', 'benefitPlansList.label')}
     />
   );
 }
@@ -23,7 +23,7 @@ function BenefitPlansListTabPanel({
   return (
     <PublishedComponent
       pubRef="policyHolder.TabPanel"
-      module="socialProtection"
+      module="benefitPlan"
       index={BENEFIT_PLANS_LIST_TAB_VALUE}
       value={value}
     >
@@ -31,7 +31,7 @@ function BenefitPlansListTabPanel({
         rights={rights}
         individualId={individual?.id}
         groupId={group?.id}
-        pubRef="socialProtection.BenefitPlanSearcherForEntities"
+        pubRef="benefitPlan.BenefitPlanSearcherForEntities"
       />
     </PublishedComponent>
   );

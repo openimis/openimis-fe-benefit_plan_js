@@ -95,7 +95,7 @@ function BenefitPlanPage({
   useEffect(() => {
     setEditedBenefitPlan(benefitPlan);
     if (!benefitPlanUuid && benefitPlan?.id) {
-      const benefitPlanRouteRef = modulesManager.getRef('socialProtection.route.benefitPlan');
+      const benefitPlanRouteRef = modulesManager.getRef('benefitPlan.route.benefitPlan');
       history.replace(`/${benefitPlanRouteRef}/${benefitPlan.id}`);
       setReset(true);
     }
@@ -136,26 +136,26 @@ function BenefitPlanPage({
     if (benefitPlan?.id) {
       updateBenefitPlan(
         editedBenefitPlan,
-        formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.update.mutationLabel', titleParams(benefitPlan)),
+        formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.update.mutationLabel', titleParams(benefitPlan)),
       );
     } else {
       createBenefitPlan(
         editedBenefitPlan,
-        formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.create.mutationLabel', titleParams(benefitPlan)),
+        formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.create.mutationLabel', titleParams(benefitPlan)),
       );
     }
   };
 
   const deleteBenefitPlanCallback = () => deleteBenefitPlan(
     benefitPlan,
-    formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.delete.mutationLabel', {
+    formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.delete.mutationLabel', {
       id: benefitPlan?.id,
     }),
   );
 
   const stopBenefitPlanCallback = () => closeBenefitPlan(
     benefitPlan,
-    formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.delete.mutationLabel', {
+    formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.delete.mutationLabel', {
       id: benefitPlan?.id,
     }),
   );
@@ -163,22 +163,22 @@ function BenefitPlanPage({
   const openDeleteBenefitPlanConfirmDialog = () => {
     setConfirmedAction(() => deleteBenefitPlanCallback);
     coreConfirm(
-      formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.delete.confirm.title', {
+      formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.delete.confirm.title', {
         code: benefitPlan?.code,
         name: benefitPlan?.name,
       }),
-      formatMessage(intl, 'socialProtection', 'benefitPlan.delete.confirm.message'),
+      formatMessage(intl, 'benefitPlan', 'benefitPlan.delete.confirm.message'),
     );
   };
 
   const openStopBenefitPlanConfirmDialog = () => {
     setConfirmedAction(() => stopBenefitPlanCallback);
     coreConfirm(
-      formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.suspend.confirm.title', {
+      formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.suspend.confirm.title', {
         code: benefitPlan?.code,
         name: benefitPlan?.name,
       }),
-      formatMessage(intl, 'socialProtection', 'benefitPlan.suspend.confirm.message'),
+      formatMessage(intl, 'benefitPlan', 'benefitPlan.suspend.confirm.message'),
     );
   };
 
@@ -199,11 +199,11 @@ function BenefitPlanPage({
     !!benefitPlan && {
       doIt: openDeleteBenefitPlanConfirmDialog,
       icon: <DeleteIcon />,
-      tooltip: formatMessage(intl, 'socialProtection', 'deleteButtonTooltip'),
+      tooltip: formatMessage(intl, 'benefitPlan', 'deleteButtonTooltip'),
     }, !!benefitPlan && {
       doIt: openStopBenefitPlanConfirmDialog,
       icon: <PauseIcon />,
-      tooltip: formatMessage(intl, 'socialProtection', 'stopButtonTooltip'),
+      tooltip: formatMessage(intl, 'benefitPlan', 'stopButtonTooltip'),
     },
   ];
 
@@ -211,7 +211,7 @@ function BenefitPlanPage({
     rights.includes(RIGHT_BENEFIT_PLAN_UPDATE) && (
     <div className={classes.page}>
       <Form
-        module="socialProtection"
+        module="benefitPlan"
         className={classes}
         title="benefitPlan.pageTitle"
         titleParams={titleParams(benefitPlan)}
@@ -234,7 +234,7 @@ function BenefitPlanPage({
         readOnly={!!benefitPlanUuid}
         saveTooltip={formatMessage(
           intl,
-          'socialProtection',
+          'benefitPlan',
           `benefitPlan.saveButton.tooltip.${canSave() ? 'enabled' : 'disabled'}`,
         )}
       />
@@ -247,15 +247,15 @@ const mapStateToProps = (state, props) => ({
   rights: !!state.core && !!state.core.user && !!state.core.user.i_user ? state.core.user.i_user.rights : [],
   benefitPlanUuid: props.match.params.benefit_plan_uuid,
   confirmed: state.core.confirmed,
-  fetchingBenefitPlans: state.socialProtection.fetchingBenefitPlans,
-  fetchedBenefitPlans: state.socialProtection.fetchedBenefitPlans,
-  benefitPlan: state.socialProtection.benefitPlan,
-  errorBenefitPlan: state.socialProtection.errorBenefitPlan,
-  submittingMutation: state.socialProtection.submittingMutation,
-  mutation: state.socialProtection.mutation,
-  isBenefitPlanCodeValid: state.socialProtection.validationFields?.benefitPlanCode?.isValid,
-  isBenefitPlanNameValid: state.socialProtection.validationFields?.benefitPlanName?.isValid,
-  isBenefitPlanSchemaValid: state.socialProtection.validationFields?.benefitPlanSchema?.isValid,
+  fetchingBenefitPlans: state.benefitPlan.fetchingBenefitPlans,
+  fetchedBenefitPlans: state.benefitPlan.fetchedBenefitPlans,
+  benefitPlan: state.benefitPlan.benefitPlan,
+  errorBenefitPlan: state.benefitPlan.errorBenefitPlan,
+  submittingMutation: state.benefitPlan.submittingMutation,
+  mutation: state.benefitPlan.mutation,
+  isBenefitPlanCodeValid: state.benefitPlan.validationFields?.benefitPlanCode?.isValid,
+  isBenefitPlanNameValid: state.benefitPlan.validationFields?.benefitPlanName?.isValid,
+  isBenefitPlanSchemaValid: state.benefitPlan.validationFields?.benefitPlanSchema?.isValid,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

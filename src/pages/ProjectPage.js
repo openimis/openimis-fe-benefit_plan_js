@@ -114,7 +114,7 @@ function ProjectPage({
       setEditedProject(project);
     }
     if (!projectUuid && project?.id) {
-      const projectRouteRef = modulesManager.getRef('socialProtection.route.project');
+      const projectRouteRef = modulesManager.getRef('benefitPlan.route.project');
       history.replace(`/${projectRouteRef}/${project.id}`);
       setReset(true);
     }
@@ -174,7 +174,7 @@ function ProjectPage({
       editedProject,
       formatMessageWithValues(
         intl,
-        'socialProtection',
+        'benefitPlan',
         mutationLabelKey,
         editedProject,
       ),
@@ -183,7 +183,7 @@ function ProjectPage({
 
   const deleteProjectCallback = () => deleteProject(
     project,
-    formatMessageWithValues(intl, 'socialProtection', 'project.delete.mutationLabel', {
+    formatMessageWithValues(intl, 'benefitPlan', 'project.delete.mutationLabel', {
       name: project?.name,
     }),
   );
@@ -191,16 +191,16 @@ function ProjectPage({
   const openDeleteConfirmDialog = () => {
     setConfirmedAction(() => deleteProjectCallback);
     coreConfirm(
-      formatMessageWithValues(intl, 'socialProtection', 'project.delete.confirm.title', {
+      formatMessageWithValues(intl, 'benefitPlan', 'project.delete.confirm.title', {
         name: project?.name,
       }),
-      formatMessage(intl, 'socialProtection', 'project.delete.confirm.message'),
+      formatMessage(intl, 'benefitPlan', 'project.delete.confirm.message'),
     );
   };
 
   const undoProjectCallback = () => undoDeleteProject(
     project,
-    formatMessageWithValues(intl, 'socialProtection', 'project.undo.mutationLabel', {
+    formatMessageWithValues(intl, 'benefitPlan', 'project.undo.mutationLabel', {
       name: project?.name,
     }),
   );
@@ -208,10 +208,10 @@ function ProjectPage({
   const openUndoConfirmDialog = () => {
     setConfirmedAction(() => undoProjectCallback);
     coreConfirm(
-      formatMessageWithValues(intl, 'socialProtection', 'project.undo.confirm.title', {
+      formatMessageWithValues(intl, 'benefitPlan', 'project.undo.confirm.title', {
         name: project?.name,
       }),
-      formatMessage(intl, 'socialProtection', 'project.undo.confirm.message'),
+      formatMessage(intl, 'benefitPlan', 'project.undo.confirm.message'),
     );
   };
 
@@ -220,18 +220,18 @@ function ProjectPage({
       project.isDeleted ? {
         doIt: openUndoConfirmDialog,
         icon: <UndoIcon />,
-        tooltip: formatMessage(intl, 'socialProtection', 'undoButtonTooltip'),
+        tooltip: formatMessage(intl, 'benefitPlan', 'undoButtonTooltip'),
       } : {
         doIt: openDeleteConfirmDialog,
         icon: <DeleteIcon />,
-        tooltip: formatMessage(intl, 'socialProtection', 'deleteButtonTooltip'),
+        tooltip: formatMessage(intl, 'benefitPlan', 'deleteButtonTooltip'),
       }),
   ];
 
   return rights.includes(RIGHT_BENEFIT_PLAN_UPDATE) && (
     <div className={classes.page}>
       <Form
-        module="socialProtection"
+        module="benefitPlan"
         className={classes.form}
         title="project.pageTitle"
         openDirty
@@ -248,7 +248,7 @@ function ProjectPage({
         actions={actions}
         readOnly={editedProject?.isDeleted}
         saveTooltip={
-          formatMessage(intl, 'socialProtection', 'project.saveButton.tooltip')
+          formatMessage(intl, 'benefitPlan', 'project.saveButton.tooltip')
         }
       />
     </div>
@@ -258,11 +258,11 @@ function ProjectPage({
 const mapStateToProps = (state, props) => ({
   rights: state.core?.user?.i_user?.rights ?? [],
   projectUuid: props.match.params.project_uuid,
-  project: state.socialProtection.project,
+  project: state.benefitPlan.project,
   confirmed: state.core.confirmed,
-  submittingMutation: state.socialProtection.submittingMutation,
-  mutation: state.socialProtection.mutation,
-  isProjectNameValid: state.socialProtection.validationFields?.projectName?.isValid,
+  submittingMutation: state.benefitPlan.submittingMutation,
+  mutation: state.benefitPlan.mutation,
+  isProjectNameValid: state.benefitPlan.validationFields?.projectName?.isValid,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(

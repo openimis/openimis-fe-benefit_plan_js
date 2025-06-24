@@ -46,7 +46,7 @@ function BenefitPlanSchemaDialog({
           marginTop: '6px',
         }}
       >
-        {formatMessage(intl, 'socialProtection', 'benefitPlan.schema.showSchema')}
+        {formatMessage(intl, 'benefitPlan', 'benefitPlan.schema.showSchema')}
       </Button>
       <Dialog
         open={isOpen}
@@ -65,7 +65,7 @@ function BenefitPlanSchemaDialog({
               marginTop: '10px',
             }}
           >
-            {formatMessage(intl, 'socialProtection', 'benefitPlan.benefitPlanSchema.label')}
+            {formatMessage(intl, 'benefitPlan', 'benefitPlan.benefitPlanSchema.label')}
           </DialogTitle>
           <DialogContent>
             <div
@@ -75,7 +75,7 @@ function BenefitPlanSchemaDialog({
                 <Grid container spacing={4} direction="column">
                   <Grid item>
                     <TextInput
-                      module="socialProtection"
+                      module="benefitPlan"
                       label="benefitPlan.schema"
                       readOnly
                       value={benefitPlan?.beneficiaryDataSchema}

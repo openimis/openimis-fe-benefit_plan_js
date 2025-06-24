@@ -40,7 +40,7 @@ function BenefitPlanHistoryFilter({
     <Grid container className={classes.form}>
       <Grid item xs={2} className={classes.item}>
         <TextInput
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.code"
           value={filterTextFieldValue('code')}
           onChange={onChangeStringFilter('code', CONTAINS_LOOKUP)}
@@ -48,7 +48,7 @@ function BenefitPlanHistoryFilter({
       </Grid>
       <Grid item xs={2} className={classes.item}>
         <TextInput
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.name"
           value={filterTextFieldValue('name')}
           onChange={onChangeStringFilter('name', CONTAINS_LOOKUP)}
@@ -57,7 +57,7 @@ function BenefitPlanHistoryFilter({
       <Grid item xs={2} className={classes.item}>
         <PublishedComponent
           pubRef="core.DatePicker"
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.dateValidFrom"
           value={filterValue('dateValidFrom')}
           onChange={(v) => onChangeFilters([
@@ -72,7 +72,7 @@ function BenefitPlanHistoryFilter({
       <Grid item xs={2} className={classes.item}>
         <PublishedComponent
           pubRef="core.DatePicker"
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.dateValidTo"
           value={filterValue('dateValidTo')}
           onChange={(v) => onChangeFilters([

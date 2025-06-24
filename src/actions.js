@@ -450,7 +450,7 @@ const WORKFLOWS_FULL_PROJECTION = () => [
 export function fetchWorkflows() {
   const payload = formatQuery(
     'workflow',
-    ['group: "socialProtection"'],
+    ['group: "beneficiary"'],
     WORKFLOWS_FULL_PROJECTION(),
   );
   return graphql(payload, ACTION_TYPE.GET_WORKFLOWS);

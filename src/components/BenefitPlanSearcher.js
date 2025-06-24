@@ -53,11 +53,11 @@ function BenefitPlanSearcher({
   const prevSubmittingMutationRef = useRef();
 
   const openDeleteBenefitPlanConfirmDialog = () => coreConfirm(
-    formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.delete.confirm.title', {
+    formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.delete.confirm.title', {
       code: benefitPlanToDelete.code,
       name: benefitPlanToDelete.name,
     }),
-    formatMessage(intl, 'socialProtection', 'benefitPlan.delete.confirm.message'),
+    formatMessage(intl, 'benefitPlan', 'benefitPlan.delete.confirm.message'),
   );
 
   useEffect(() => benefitPlanToDelete && openDeleteBenefitPlanConfirmDialog(), [benefitPlanToDelete]);
@@ -66,7 +66,7 @@ function BenefitPlanSearcher({
     if (benefitPlanToDelete && confirmed) {
       deleteBenefitPlan(
         benefitPlanToDelete,
-        formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.delete.mutationLabel', {
+        formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.delete.mutationLabel', {
           id: benefitPlanToDelete?.id,
         }),
       );
@@ -106,13 +106,13 @@ function BenefitPlanSearcher({
   };
 
   function benefitPlanUpdatePageUrl(benefitPlan) {
-    return (`${modulesManager.getRef('socialProtection.route.benefitPlan')}`
+    return (`${modulesManager.getRef('benefitPlan.route.benefitPlan')}`
         + `/${benefitPlan?.id}`);
   }
 
   const onDoubleClick = (benefitPlan, newTab = false) => rights.includes(RIGHT_BENEFIT_PLAN_UPDATE)
       && !deletedBenefitPlanUuids.includes(benefitPlan.id)
-      && historyPush(modulesManager, history, 'socialProtection.route.benefitPlan', [benefitPlan?.id], newTab);
+      && historyPush(modulesManager, history, 'benefitPlan.route.benefitPlan', [benefitPlan?.id], newTab);
 
   const onDelete = (benefitPlan) => setBenefitPlanToDelete(benefitPlan);
 
@@ -203,14 +203,14 @@ function BenefitPlanSearcher({
 
   return (
     <Searcher
-      module="socialProtection"
+      module="benefitPlan"
       FilterPane={benefitPlanFilter}
       fetch={fetch}
       items={benefitPlans}
       itemsPageInfo={benefitPlansPageInfo}
       fetchedItems={fetchingBenefitPlans}
       errorItems={errorBenefitPlans}
-      tableTitle={formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.searcherResultsTitle', {
+      tableTitle={formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.searcherResultsTitle', {
         benefitPlansTotalCount,
       })}
       headers={headers}
@@ -229,14 +229,14 @@ function BenefitPlanSearcher({
 }
 
 const mapStateToProps = (state) => ({
-  fetchingBenefitPlans: state.socialProtection.fetchingBenefitPlans,
-  errorBenefitPlans: state.socialProtection.errorBenefitPlans,
-  benefitPlans: state.socialProtection.benefitPlans,
-  benefitPlansPageInfo: state.socialProtection.benefitPlansPageInfo,
-  benefitPlansTotalCount: state.socialProtection.benefitPlansTotalCount,
+  fetchingBenefitPlans: state.benefitPlan.fetchingBenefitPlans,
+  errorBenefitPlans: state.benefitPlan.errorBenefitPlans,
+  benefitPlans: state.benefitPlan.benefitPlans,
+  benefitPlansPageInfo: state.benefitPlan.benefitPlansPageInfo,
+  benefitPlansTotalCount: state.benefitPlan.benefitPlansTotalCount,
   confirmed: state.core.confirmed,
-  submittingMutation: state.socialProtection.submittingMutation,
-  mutation: state.socialProtection.mutation,
+  submittingMutation: state.benefitPlan.submittingMutation,
+  mutation: state.benefitPlan.mutation,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(

@@ -9,7 +9,7 @@ function BenefitPlanTypePicker(props) {
   } = props;
   return (
     <ConstantBasedPicker
-      module="socialProtection"
+      module="benefitPlan"
       label="beneficiary.benefitPlanTypePicker"
       constants={BENEFIT_PLAN_TYPE_LIST}
       required={required}

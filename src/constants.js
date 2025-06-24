@@ -1,4 +1,4 @@
-export const SOCIAL_PROTECTION_MAIN_MENU_CONTRIBUTION_KEY = 'socialProtection.MainMenu';
+export const SOCIAL_PROTECTION_MAIN_MENU_CONTRIBUTION_KEY = 'benefitPlan.MainMenu';
 export const CONTAINS_LOOKUP = 'Icontains';
 export const DEFAULT_DEBOUNCE_TIME = 500;
 export const DEFAULT_PAGE_SIZE = 10;
@@ -34,7 +34,7 @@ export const BENEFIT_PLAN_BENEFICIARY_TABS_LABEL_CONTRIBUTION_KEY = 'benefitPlan
 export const BENEFIT_PLAN_BENEFICIARY_TABS_PANEL_CONTRIBUTION_KEY = 'benefitPlan.BeneficiaryTabPanel.panel';
 export const DEDUPLICATION_SELECT_FIELD_DIALOG_CONTRIBUTION_KEY = 'deduplication.deduplicationFieldSelectionDialog';
 
-export const SOCIAL_PROTECTION_ROUTE_BENEFIT_PLAN = 'socialProtection.route.benefitPlan';
+export const BENEFIT_PLAN_ROUTE_BENEFIT_PLAN = 'benefitPlan.route.benefitPlan';
 
 export const TASK_STATUS = {
   RECEIVED: 'RECEIVED',

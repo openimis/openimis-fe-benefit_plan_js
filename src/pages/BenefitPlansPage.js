@@ -9,7 +9,7 @@ import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import {
   RIGHT_BENEFIT_PLAN_CREATE,
-  RIGHT_BENEFIT_PLAN_SEARCH, SOCIAL_PROTECTION_ROUTE_BENEFIT_PLAN,
+  RIGHT_BENEFIT_PLAN_SEARCH, BENEFIT_PLAN_ROUTE_BENEFIT_PLAN,
 } from '../constants';
 import BenefitPlanSearcher from '../components/BenefitPlanSearcher';
 
@@ -23,16 +23,18 @@ function BenefitPlansPage(props) {
     intl, classes, rights, modulesManager, history,
   } = props;
 
+  console.log('xxx');
+
   const onAdd = () => historyPush(
     modulesManager,
     history,
-    SOCIAL_PROTECTION_ROUTE_BENEFIT_PLAN,
+    BENEFIT_PLAN_ROUTE_BENEFIT_PLAN,
   );
 
   return (
     rights.includes(RIGHT_BENEFIT_PLAN_SEARCH) && (
     <div className={classes.page}>
-      <Helmet title={formatMessage(intl, 'socialProtection', 'benefitPlan.benefitPlanHelmet')} />
+      <Helmet title={formatMessage(intl, 'benefitPlan', 'benefitPlan.benefitPlanHelmet')} />
       <BenefitPlanSearcher rights={rights} />
       {rights.includes(RIGHT_BENEFIT_PLAN_CREATE)
         && withTooltip(
@@ -41,7 +43,7 @@ function BenefitPlansPage(props) {
               <AddIcon />
             </Fab>
           </div>,
-          formatMessage(intl, 'socialProtection', 'createButton.tooltip'),
+          formatMessage(intl, 'benefitPlan', 'createButton.tooltip'),
         )}
     </div>
     )

@@ -26,7 +26,7 @@ function BenefitPlanPicker(props) {
   const modulesManager = useModulesManager();
   const [filters, setFilters] = useState({ isDeleted: false });
   const [currentString, setCurrentString] = useState('');
-  const { formatMessage, formatMessageWithValues } = useTranslations('socialProtection', modulesManager);
+  const { formatMessage, formatMessageWithValues } = useTranslations('benefitPlan', modulesManager);
 
   const { isLoading, data, error } = useGraphqlQuery(
     `

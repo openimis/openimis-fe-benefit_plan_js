@@ -66,7 +66,7 @@ class BenefitPlanHeadPanel extends FormPanel {
       <Grid container className={classes.item}>
         <Grid item xs={3} className={classes.item}>
           <ValidatedTextInput
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.code"
             required
             onChange={(v) => this.updateAttribute('code', v)}
@@ -87,7 +87,7 @@ class BenefitPlanHeadPanel extends FormPanel {
         </Grid>
         <Grid item xs={3} className={classes.item}>
           <ValidatedTextInput
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.name"
             required
             onChange={(v) => this.updateAttribute('name', v)}
@@ -106,7 +106,7 @@ class BenefitPlanHeadPanel extends FormPanel {
         <Grid item xs={3} className={classes.item}>
           <PublishedComponent
             pubRef="core.DatePicker"
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.dateValidFrom"
             required
             onChange={(v) => this.updateAttribute('dateValidFrom', v)}
@@ -120,7 +120,7 @@ class BenefitPlanHeadPanel extends FormPanel {
         <Grid item xs={3} className={classes.item}>
           <PublishedComponent
             pubRef="core.DatePicker"
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.dateValidTo"
             required
             onChange={(v) => this.updateAttribute('dateValidTo', v)}
@@ -132,7 +132,7 @@ class BenefitPlanHeadPanel extends FormPanel {
           <NumberInput
             min={0}
             displayZero
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.maxBeneficiaries"
             onChange={(v) => {
               this.updateAttribute('maxBeneficiaries', v === '' ? null : v);
@@ -142,7 +142,7 @@ class BenefitPlanHeadPanel extends FormPanel {
         </Grid>
         <Grid item xs={3} className={classes.item}>
           <TextInput
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.institution"
             onChange={(v) => this.updateAttribute('institution', v)}
             value={benefitPlan?.institution ?? ''}
@@ -160,7 +160,7 @@ class BenefitPlanHeadPanel extends FormPanel {
         </Grid>
         <Grid item xs={3} className={classes.item}>
           <TextAreaInput
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.description"
             inputProps={{ maxLength: DESCRIPTION_MAX_LENGTH }}
             value={benefitPlan?.description}
@@ -170,11 +170,11 @@ class BenefitPlanHeadPanel extends FormPanel {
         {rights.includes(RIGHT_SCHEMA_UPDATE) && (
         <Grid item xs={3} className={classes.item}>
           <ValidatedTextAreaInput
-            module="socialProtection"
+            module="benefitPlan"
             label="benefitPlan.schema"
             onChange={(v) => this.updateAttribute('beneficiaryDataSchema', v)}
             value={benefitPlan?.beneficiaryDataSchema}
-            codeTakenLabel="socialProtection.validation.benefitPlan.invalidSchema"
+            codeTakenLabel="benefitPlan.validation.benefitPlan.invalidSchema"
             itemQueryIdentifier="bfSchema"
             action={benefitPlanSchemaValidationCheck}
             clearAction={benefitPlanSchemaValidationClear}
@@ -192,19 +192,19 @@ class BenefitPlanHeadPanel extends FormPanel {
 }
 
 const mapStateToProps = (store) => ({
-  isBenefitPlanCodeValid: store.socialProtection.validationFields?.benefitPlanCode?.isValid,
-  isBenefitPlanCodeValidating: store.socialProtection.validationFields?.benefitPlanCode?.isValidating,
-  benefitPlanCodeValidationError: store.socialProtection.validationFields?.benefitPlanCode?.validationError,
-  savedBenefitPlanCode: store.socialProtection?.benefitPlan?.code,
-  isBenefitPlanNameValid: store.socialProtection.validationFields?.benefitPlanName?.isValid,
-  isBenefitPlanNameValidating: store.socialProtection.validationFields?.benefitPlanName?.isValidating,
-  benefitPlanNameValidationError: store.socialProtection.validationFields?.benefitPlanName?.validationError,
-  savedBenefitPlanName: store.socialProtection?.benefitPlan?.name,
-  isBenefitPlanSchemaValid: store.socialProtection.validationFields?.benefitPlanSchema?.isValid,
-  isBenefitPlanSchemaValidating: store.socialProtection.validationFields?.benefitPlanSchema?.isValidating,
-  benefitPlanSchemaValidationError: store.socialProtection.validationFields?.benefitPlanSchema?.validationError,
+  isBenefitPlanCodeValid: store.benefitPlan.validationFields?.benefitPlanCode?.isValid,
+  isBenefitPlanCodeValidating: store.benefitPlan.validationFields?.benefitPlanCode?.isValidating,
+  benefitPlanCodeValidationError: store.benefitPlan.validationFields?.benefitPlanCode?.validationError,
+  savedBenefitPlanCode: store.benefitPlan?.benefitPlan?.code,
+  isBenefitPlanNameValid: store.benefitPlan.validationFields?.benefitPlanName?.isValid,
+  isBenefitPlanNameValidating: store.benefitPlan.validationFields?.benefitPlanName?.isValidating,
+  benefitPlanNameValidationError: store.benefitPlan.validationFields?.benefitPlanName?.validationError,
+  savedBenefitPlanName: store.benefitPlan?.benefitPlan?.name,
+  isBenefitPlanSchemaValid: store.benefitPlan.validationFields?.benefitPlanSchema?.isValid,
+  isBenefitPlanSchemaValidating: store.benefitPlan.validationFields?.benefitPlanSchema?.isValidating,
+  benefitPlanSchemaValidationError: store.benefitPlan.validationFields?.benefitPlanSchema?.validationError,
   benefitPlanSchemaValidationErrorMessage:
-    store.socialProtection.validationFields?.benefitPlanSchema?.validationErrorMessage,
+    store.benefitPlan.validationFields?.benefitPlanSchema?.validationErrorMessage,
 });
 
 export default withModulesManager(injectIntl(withTheme(withStyles(styles)(

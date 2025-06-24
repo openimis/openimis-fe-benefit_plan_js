@@ -52,7 +52,7 @@ function BenefitPlanFilter({
     <Grid container className={classes.form}>
       <Grid item xs={2} className={classes.item}>
         <TextInput
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.code"
           value={filterTextFieldValue('code')}
           onChange={onChangeStringFilter('code', CONTAINS_LOOKUP)}
@@ -60,7 +60,7 @@ function BenefitPlanFilter({
       </Grid>
       <Grid item xs={2} className={classes.item}>
         <TextInput
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.name"
           value={filterTextFieldValue('name')}
           onChange={onChangeStringFilter('name', CONTAINS_LOOKUP)}
@@ -68,7 +68,7 @@ function BenefitPlanFilter({
       </Grid>
       <Grid item xs={3} className={classes.item}>
         <BenefitPlanTypePicker
-          module="socialProtection"
+          module="benefitPlan"
           label="beneficiary.benefitPlanTypePicker"
           value={filterValue('type')}
           onChange={(v) => onChangeFilters([
@@ -84,7 +84,7 @@ function BenefitPlanFilter({
       <Grid item xs={2} className={classes.item}>
         <PublishedComponent
           pubRef="core.DatePicker"
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.dateValidFrom"
           value={filterValue('dateValidFrom')}
           onChange={(v) => onChangeFilters([
@@ -99,7 +99,7 @@ function BenefitPlanFilter({
       <Grid item xs={2} className={classes.item}>
         <PublishedComponent
           pubRef="core.DatePicker"
-          module="socialProtection"
+          module="benefitPlan"
           label="benefitPlan.dateValidTo"
           value={filterValue('dateValidTo')}
           onChange={(v) => onChangeFilters([
@@ -123,7 +123,7 @@ function BenefitPlanFilter({
               )}
             />
           )}
-          label={formatMessage(intl, 'socialProtection', 'benefitPlan.isDeleted')}
+          label={formatMessage(intl, 'benefitPlan', 'benefitPlan.isDeleted')}
         />
       </Grid>
       {showStatuses && (

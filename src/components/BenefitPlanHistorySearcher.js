@@ -140,14 +140,14 @@ function BenefitPlanHistorySearcher({
 
   return (
     <Searcher
-      module="socialProtection"
+      module="benefitPlan"
       FilterPane={benefitPlanHistoryFilter}
       fetch={fetch}
       items={benefitPlansHistory}
       itemsPageInfo={benefitPlansHistoryPageInfo}
       fetchedItems={fetchingBenefitPlansHistory}
       errorItems={errorBenefitPlansHistory}
-      tableTitle={formatMessageWithValues(intl, 'socialProtection', 'benefitPlan.searcherResultsTitleHistory', {
+      tableTitle={formatMessageWithValues(intl, 'benefitPlan', 'benefitPlan.searcherResultsTitleHistory', {
         benefitPlansHistoryTotalCount,
       })}
       headers={headers}
@@ -163,14 +163,14 @@ function BenefitPlanHistorySearcher({
 }
 
 const mapStateToProps = (state) => ({
-  fetchingBenefitPlansHistory: state.socialProtection.fetchingBenefitPlansHistory,
-  errorBenefitPlansHistory: state.socialProtection.errorBenefitPlansHistory,
-  benefitPlansHistory: state.socialProtection.benefitPlansHistory,
-  benefitPlansHistoryPageInfo: state.socialProtection.benefitPlansHistoryPageInfo,
-  benefitPlansHistoryTotalCount: state.socialProtection.benefitPlansHistoryTotalCount,
+  fetchingBenefitPlansHistory: state.benefitPlan.fetchingBenefitPlansHistory,
+  errorBenefitPlansHistory: state.benefitPlan.errorBenefitPlansHistory,
+  benefitPlansHistory: state.benefitPlan.benefitPlansHistory,
+  benefitPlansHistoryPageInfo: state.benefitPlan.benefitPlansHistoryPageInfo,
+  benefitPlansHistoryTotalCount: state.benefitPlan.benefitPlansHistoryTotalCount,
   confirmed: state.core.confirmed,
-  submittingMutation: state.socialProtection.submittingMutation,
-  mutation: state.socialProtection.mutation,
+  submittingMutation: state.benefitPlan.submittingMutation,
+  mutation: state.benefitPlan.mutation,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(

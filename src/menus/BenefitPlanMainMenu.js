@@ -14,11 +14,11 @@ import {
 function BenefitPlanMainMenu(props) {
   const entries = [
     {
-      text: formatMessage(props.intl, 'socialProtection', 'menu.socialProtection.benefitPlans'),
+      text: formatMessage(props.intl, 'benefitPlan', 'menu.benefitPlan.benefitPlans'),
       icon: <Tune />,
       route: '/benefitPlans',
       filter: (rights) => rights.includes(RIGHT_BENEFIT_PLAN_SEARCH),
-      id: 'socialProtection.benefitPlans',
+      id: 'benefitPlan.benefitPlans',
     },
   ];
   entries.push(
@@ -30,7 +30,7 @@ function BenefitPlanMainMenu(props) {
   return (
     <MainMenuContribution
       {...props}
-      header={formatMessage(props.intl, 'socialProtection', 'mainMenuSocialProtection')}
+      header={formatMessage(props.intl, 'benefitPlan', 'mainMenuBenefitPlan')}
       entries={entries}
       menuId="BenefitPlanMainMenu"
     />

@@ -3,15 +3,15 @@ import { FormattedMessage, useModulesManager, useTranslations } from '@openimis/
 import { MODULE_NAME } from '../../constants';
 
 const BenefitPlanTaskTableHeaders = () => [
-  <FormattedMessage module="socialProtection" id="benefitPlan.code" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.name" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.type" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.dateValidFrom" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.dateValidTo" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.maxBeneficiaries" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.institution" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.schema" />,
-  <FormattedMessage module="socialProtection" id="benefitPlan.jsonExt" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.code" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.name" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.type" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.dateValidFrom" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.dateValidTo" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.maxBeneficiaries" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.institution" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.schema" />,
+  <FormattedMessage module="benefitPlan" id="benefitPlan.jsonExt" />,
 ];
 
 const BenefitPlanTaskItemFormatters = () => {
